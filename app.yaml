@@ -1,8 +1,8 @@
-application: GerenciadorDispensa
+application: gerenciadordispensa
 version: 1
 runtime: python
 api_version: 1
 
 handlers:
 - url: .*
-  script: main.py
+  script: src/main_handler.py

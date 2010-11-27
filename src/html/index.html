@@ -1,0 +1,16 @@
+<html>
+  <body>
+  
+  Listing items ({{num_items}})
+  
+  <ul>
+  {% for item in itens %}
+  
+        <li>{{item.nome}} (<a href="/delete?nome={{item.nome}}">Apagar</a>)</li>
+  {% endfor %}
+  </ul>
+  <br>
+  <a href="/create">Create item</a>  
+  
+  </body>
+</html>
