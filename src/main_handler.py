@@ -1,12 +1,9 @@
 import os
 from google.appengine.ext.webapp import template
-from google.appengine.ext import webapp, db
+from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-class item(db.Model):
-    nome = db.StringProperty(required=False)
-    descricao = db.StringProperty(required=False)
-    usuario = db.UserProperty()
+from src.model import *
 
 class Delete(webapp.RequestHandler):
 
@@ -15,7 +12,7 @@ class Delete(webapp.RequestHandler):
         no_banco = item.all().filter("nome =", self.request.get('nome')).fetch(1)
         no_banco[0].delete()
         
-        self.redirect()
+        self.redirect('/')
 
 class Create(webapp.RequestHandler):
     
